@@ -1,6 +1,6 @@
 "use strict";
 
-import { app, protocol, BrowserWindow } from "electron";
+import { app, protocol, BrowserWindow, ipcMain } from "electron";
 import {
 	createProtocol,
 	installVueDevtools,
@@ -26,8 +26,8 @@ protocol.registerSchemesAsPrivileged([
 function createWindow() {
 	// Create the browser window.
 	win = new BrowserWindow({
-		width: 800,
-		height: 600,
+		width: 1200,
+		height: 800,
 		show: false,
 		webPreferences: {
 			nodeIntegration: true,
@@ -43,6 +43,10 @@ function createWindow() {
 		// Load the index.html when not in development
 		win.loadURL("app://./index.html");
 	}
+
+	win.on("ready-to-show", () => {
+		win && win.show();
+	});
 
 	win.on("closed", () => {
 		win = null;
