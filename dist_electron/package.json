@@ -6,8 +6,8 @@
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"eb": "vue-cli-service electron:build",
-		"es": "vue-cli-service electron:serve"
+		"es": "vue-cli-service electron:serve",
+		"eb": "vue-cli-service electron:build"
 	},
 	"dependencies": {
 		"core-js": "^3.6.4",
